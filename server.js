@@ -1,5 +1,7 @@
 const express = require('express');
-const db = require('./backend/db/dbConnection');
+const mongoose = require('./backend/db/dbConnection');
+
+var URL = require('url');
 
 var app = express();
 
