@@ -1,4 +1,5 @@
 const express = require('express');
+const db = require('./backend/db/dbConnection');
 
 var app = express();
 
