@@ -7,8 +7,10 @@ var createUser = function(req, res) {
     
     var user = new userModel(body);
 
-    user.save().then((err, user) => {
-        res.status(200).send(user);
+    user.save().then(() => {
+      return user.generateAuthToken()
+    }).then((token)=> {
+        res.header('x-auth', token).send(user);
     }).catch((err) => {
         res.status(400).send(err);
     });

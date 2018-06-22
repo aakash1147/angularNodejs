@@ -8,8 +8,8 @@ var routing = require('./backend/routing')(app);
 
 
 
-app.listen(8000, ()=> {
-    console.log("Server is running on port 8000")
+app.listen(7000, ()=> {
+    console.log("Server is running on port 7000")
 });
 
 

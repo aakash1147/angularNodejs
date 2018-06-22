@@ -40,7 +40,18 @@ UserSchema.methods.toJSON = function () {
    return _.pick(userObject, ['_id', 'email']);
 };
   
+UserSchema.methods.generateAuthToken = function () {
+    var user = this;
+    var access = 'auth';
+    
+    var token = jwt.sign({_id: user._id.toHexString(), access}, 'akash1147').toString();
 
+    user.tokens.push({access, token});
+
+    return user.save().then(() => {
+        return token;
+    });
+}
 
 
 var UserModel = mongoose.model('user', UserSchema);
