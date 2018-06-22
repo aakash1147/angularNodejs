@@ -52,6 +52,22 @@ UserSchema.methods.generateAuthToken = function () {
     });
 };
 
+UserSchema.statics.findBToken = function(token) {
+    // to find the user with token
+    var user = this;
+    var decoded;
+    try {
+      decoded = jwt.verify(token, 'akash1147');
+    } catch (e) {
+      return Promise.reject();
+    }
+    return User.findOne({
+        '_id': decoded._id,
+        'tokens.token': token,
+        'tokens.access': 'auth'
+    });
+};
+
 UserSchema.methods.findByCrediential = function (email, password) {
     // to find the user by crediential email id
     var user = this;
