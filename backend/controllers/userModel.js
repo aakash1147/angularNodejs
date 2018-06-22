@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const validator = require('validator');
 
@@ -19,5 +20,6 @@ var UserSchema = mongoose.Schema({
     }
 });
 
-var User = mongoose.model('user', UserSchema);
-module.exports = User;
+var UserModel = mongoose.model('user', UserSchema);
+
+module.exports = UserModel;

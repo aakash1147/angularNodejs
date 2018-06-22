@@ -9,4 +9,3 @@ mongoose.connect('mongodb://localhost:27017/employeeProject', (err, db) => {
 module.exports = {
     mongoose
 }
-
