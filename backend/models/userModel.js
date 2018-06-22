@@ -1,6 +1,7 @@
 
 const mongoose = require('mongoose');
 const validator = require('validator');
+const _ = require('lodash');
 
 
 var UserSchema = mongoose.Schema({
@@ -19,6 +20,14 @@ var UserSchema = mongoose.Schema({
         required: [true, "Password is required"],
     }
 });
+
+
+UserSchema.methods.toJSON = function () {
+    var user = this;
+    var userObject = user.toObject();
+   return _.pick(userObject, ['_id', 'email']);
+};
+  
 
 var UserModel = mongoose.model('user', UserSchema);
 
