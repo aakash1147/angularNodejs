@@ -54,8 +54,22 @@ UserSchema.methods.generateAuthToken = function () {
 
 UserSchema.methods.findByCrediential = function (email, password) {
     // to find the user by crediential email id
-    
-
+    var user = this;
+    return user.findOne({email}).then((user) => {
+        if(!user) {
+            return Promise.reject();
+        }
+        return new Promise((resolve, reject) => {
+            // to compare the user given password & the enycripted password present in the datebase
+            bcrypt.compare(password, user.password, (err, res) => {
+                if(res) {
+                    resolve(user);
+                } else {
+                    reject();
+                }
+            })
+        })
+    });
 }
 
 UserSchema.pre('save', function(next) {
