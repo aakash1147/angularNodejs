@@ -1,7 +1,9 @@
 
 const mongoose = require('mongoose');
 const validator = require('validator');
+const jwt = require('jsonwebtoken');
 const _ = require('lodash');
+const bcrypt = require('bcryptjs');
 
 
 var UserSchema = mongoose.Schema({
@@ -18,7 +20,17 @@ var UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: [true, "Password is required"],
-    }
+    },
+    tokens: [{
+        access: {
+          type: String,
+          required: true
+        },
+        token: {
+          type: String,
+          required: true
+        }
+    }],
 });
 
 
@@ -28,6 +40,8 @@ UserSchema.methods.toJSON = function () {
    return _.pick(userObject, ['_id', 'email']);
 };
   
+
+
 
 var UserModel = mongoose.model('user', UserSchema);
 
