@@ -52,7 +52,7 @@ UserSchema.methods.generateAuthToken = function () {
     });
 };
 
-UserSchema.statics.findBToken = function(token) {
+UserSchema.statics.findByToken = function(token) {
     // to find the user with token
     var user = this;
     var decoded;
