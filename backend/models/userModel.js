@@ -52,41 +52,41 @@ UserSchema.methods.generateAuthToken = function () {
     });
 };
 
-UserSchema.statics.findByToken = function(token) {
-    // to find the user with token
-    var user = this;
-    var decoded;
-    try {
-      decoded = jwt.verify(token, 'akash1147');
-    } catch (e) {
-      return Promise.reject();
-    }
-    return User.findOne({
-        '_id': decoded._id,
-        'tokens.token': token,
-        'tokens.access': 'auth'
-    });
-};
+// UserSchema.statics.findByToken = function(token) {
+//     // to find the user with token
+//     var user = this;
+//     var decoded;
+//     try {
+//       decoded = jwt.verify(token, 'akash1147');
+//     } catch (e) {
+//       return Promise.reject();
+//     }
+//     return User.findOne({
+//         '_id': decoded._id,
+//         'tokens.token': token,
+//         'tokens.access': 'auth'
+//     });
+// };
 
-UserSchema.methods.findByCrediential = function (email, password) {
-    // to find the user by crediential email id
-    var user = this;
-    return user.findOne({email}).then((user) => {
-        if(!user) {
-            return Promise.reject();
-        }
-        return new Promise((resolve, reject) => {
-            // to compare the user given password & the enycripted password present in the datebase
-            bcrypt.compare(password, user.password, (err, res) => {
-                if(res) {
-                    resolve(user);
-                } else {
-                    reject();
-                }
-            })
-        })
-    });
-}
+// UserSchema.methods.findByCrediential = function (email, password) {
+//     // to find the user by crediential email id
+//     var user = this;
+//     return user.findOne({email}).then((user) => {
+//         if(!user) {
+//             return Promise.reject();
+//         }
+//         return new Promise((resolve, reject) => {
+//             // to compare the user given password & the enycripted password present in the datebase
+//             bcrypt.compare(password, user.password, (err, res) => {
+//                 if(res) {
+//                     resolve(user);
+//                 } else {
+//                     reject();
+//                 }
+//             })
+//         })
+//     });
+// }
 
 UserSchema.pre('save', function(next) {
     var user = this;

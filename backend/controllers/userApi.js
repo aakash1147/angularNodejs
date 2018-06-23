@@ -4,9 +4,7 @@ var userModel = require('../models/userModel');
 
 var createUser = function(req, res) {
     var body = _.pick(req.body, ['email', 'password']);
-    
     var user = new userModel(body);
-
     user.save().then(() => {
       return user.generateAuthToken()
     }).then((token)=> {
