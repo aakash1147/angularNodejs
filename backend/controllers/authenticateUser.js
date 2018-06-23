@@ -1,19 +1,28 @@
-// var userModel = require('../models/userModel');
+var userModel = require('../models/userModel');
 
-// var authentication = function (req, res) {
-//     var token = req.header('x-auth');
+var authentication = function (req, res, next) {
+    var token = req.header('x-auth');
 
-//     userModel.findByToken(token).then((user)=> {
-//         if(!user) return Promise.reject();
-//         req.user = user;
-//         req.token = token;
-//         next();
-//     }).catch((err) => {
-//         res.status(401).send();
-//     })
+    console.log(req.originalUrl);
+    var url = req.originalUrl;
+    if(url == '/create/user' || '/login') {
+        next();
+    }else if(url != '/create/user' || '/login'){
+        console.log("$$$$$$$");
+        userModel.findByToken(token).then((user)=> {
+            if(!user) return Promise.reject();
+            console.log(user);
+            req.user = user;
+            req.token = token;
+            next();
+        }).catch((err) => {
+            res.status(401).send();
+        })
+    
+    }
+    
+}
 
-// }
-
-// module.exports = {
-//     authentication
-// }
+module.exports = {
+    authentication
+}
