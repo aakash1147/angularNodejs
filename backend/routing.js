@@ -10,6 +10,5 @@ module.exports = function(app) {
     app.use(UserAuthentication.authentication);
 
     app.post('/login', loginApi.login);
-    app.get('/me', loginApi.me);
     app.post('/create/user', userApi.createUser);
 }
