@@ -8,7 +8,6 @@ var authentication = function (req, res, next) {
     if(url == '/create/user' || '/login') {
         next();
     }else if(url != '/create/user' || '/login'){
-        console.log("$$$$$$$");
         userModel.findByToken(token).then((user)=> {
             if(!user) return Promise.reject();
             console.log(user);
