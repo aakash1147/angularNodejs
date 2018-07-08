@@ -1,1 +1,62 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+.simply-login-card {
+    position: fixed !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 0px !important;
+    min-width: 310px;
+}
+
+.background-colour-light-grey {
+    background-color: #f5f5ff;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+body {
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+}
+
+.basic-container {
+    padding: 5px;
+}
+
+.version-info {
+    font-size: 8pt;
+    float: right;
+}
+
+$simply-background-card-colour-warm: #3597ff;
+$simply-text-color-white: white;
+$simply-button-background-color: #3597ff;
+$simply-input-field-text-color-onFocus: #3597ff;
+$simply-input-filed-underline-color-onClick: #3597ff;
+.simply-input-width-full {
+    width: 100%;
+}
+
+.simply-background-color-warn {
+    background-color: $simply-background-card-colour-warm;
+    // background-color: #3597ff;
+    color: $simply-text-color-white !important;
+}
+
+
+.simply-button-background-color-warn {
+    background-color: $simply-button-background-color !important;
+    color: $simply-text-color-white !important;
+}
+
+.mat-form-field-ripple {
+    //   caret-color: #f44336 !important;
+    background-color: $simply-input-filed-underline-color-onClick !important;
+}
+
+.mat-focused .mat-form-field-label {
+    color: $simply-input-field-text-color-onFocus !important;
+}

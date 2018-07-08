@@ -3,16 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import {CdkTableModule} from '@angular/cdk/table';
-import {HttpClientModule} from '@angular/common/http';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CdkTableModule} from '@angular/cdk/table';
+import { HttpClientModule} from '@angular/common/http';
+import { platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CookieModule } from 'ngx-cookie';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DemoMaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
+import { LoginModule } from './login/login.module';
 
 
 
@@ -30,7 +31,7 @@ import { routing } from './app.routing';
     HttpClientModule,
     routing,
     CookieModule.forRoot(),
-
+    LoginModule
   ],
   exports: [
     DemoMaterialModule
