@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { routing } from "./login.routing";
+import { RegistrationComponent } from "./registration/registration.component";
 
 @NgModule({
     imports: [
@@ -12,7 +13,7 @@ import { routing } from "./login.routing";
         routing
     ],
     declarations: [
-        LoginFormComponent
+        LoginFormComponent, RegistrationComponent
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     providers: []
