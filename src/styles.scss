@@ -31,11 +31,12 @@ body {
     float: right;
 }
 
-$simply-background-card-colour-warm: #3597ff;
+$simply-background-card-colour-warm: #FF6365;
 $simply-text-color-white: white;
-$simply-button-background-color: #3597ff;
-$simply-input-field-text-color-onFocus: #3597ff;
-$simply-input-filed-underline-color-onClick: #3597ff;
+$simply-button-background-color: #FF6365;
+$simply-input-field-text-color-onFocus: #41628A;
+$simply-input-filed-underline-color-onClick: #41628A;
+// 3597ff
 .simply-input-width-full {
     width: 100%;
 }
@@ -59,4 +60,12 @@ $simply-input-filed-underline-color-onClick: #3597ff;
 
 .mat-focused .mat-form-field-label {
     color: $simply-input-field-text-color-onFocus !important;
+}
+
+.social_background_image {
+    background-image: url("./assets/images/SocialMediaBackground.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 42em;
 }

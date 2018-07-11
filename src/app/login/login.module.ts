@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { routing } from "./login.routing";
 import { RegistrationComponent } from "./registration/registration.component";
+import { LoginModuleService } from "./login-module.service";
 
 @NgModule({
     imports: [
@@ -16,7 +17,7 @@ import { RegistrationComponent } from "./registration/registration.component";
         LoginFormComponent, RegistrationComponent
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-    providers: []
+    providers: [LoginModuleService]
 })
 
 

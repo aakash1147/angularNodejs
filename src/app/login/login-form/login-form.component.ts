@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginModuleService } from '../login-module.service';
 
 @Component({
     selector: 'login-form',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class LoginFormComponent {
 
+    public loginDto = {
+        "email": null,
+        "password": null,
+    };
+
+    constructor(private loginModuleService: LoginModuleService) {
+
+    }
 }

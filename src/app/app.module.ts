@@ -14,6 +14,7 @@ import { DemoMaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { LoginModule } from './login/login.module';
+import { projectApi } from './service/project-api.service';
 
 
 
@@ -36,7 +37,7 @@ import { LoginModule } from './login/login.module';
   exports: [
     DemoMaterialModule
   ],
-  providers: [],
+  providers: [projectApi],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })
