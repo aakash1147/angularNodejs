@@ -4,7 +4,7 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { CdkTableModule} from '@angular/cdk/table';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'
 import { platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CookieModule } from 'ngx-cookie';
@@ -15,6 +15,8 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { LoginModule } from './login/login.module';
 import { projectApi } from './service/project-api.service';
+import { LoginService } from './service/login-service';
+import { HttpClient } from './service/custom-http-client.service';
 
 
 
@@ -24,11 +26,11 @@ import { projectApi } from './service/project-api.service';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,HttpModule,
     DemoMaterialModule, 
     BrowserAnimationsModule,
     FormsModule, ReactiveFormsModule,
-    HttpModule,
+    
     HttpClientModule,
     routing,
     CookieModule.forRoot(),
@@ -37,7 +39,7 @@ import { projectApi } from './service/project-api.service';
   exports: [
     DemoMaterialModule
   ],
-  providers: [projectApi],
+  providers: [projectApi, LoginService,HttpClient],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })
