@@ -16,8 +16,6 @@ export class LoginModuleService {
         this.LoginService.LoginFormService(data).subscribe(
             data => {
                 console.log(data);
-                // this.cookiesService.put('Token', data.key);
-                // this.get_data_after_token();
             },
             error => {
                 console.log(error);

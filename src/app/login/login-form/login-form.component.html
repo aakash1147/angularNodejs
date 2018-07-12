@@ -15,7 +15,7 @@
             </mat-form-field>
 
             <mat-form-field class="matInput" class="simply-input-width-full">
-                <input matInput placeholder="Enter your password" name="password" [(ngModel)]="loginDto.email" class="formControl"   [type]="hide ? 'text' : 'password'">
+                <input matInput placeholder="Enter your password" name="password" [(ngModel)]="loginDto.password" class="formControl"   [type]="hide ? 'text' : 'password'">
                 <mat-icon matSuffix style="cursor: pointer;" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error >
                     Password have 6 digit & atlest One number
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="mb-4 mt-2 col-12 simply-button-background-color-warn" mat-raised-button>Login</button>
+            <button type="button" (click)="method_for_login()" class="mb-4 mt-2 col-12 simply-button-background-color-warn" mat-raised-button>Login</button>
         </form>
     </div>
 </mat-card>

@@ -8,7 +8,9 @@ var login = function(req, res) {
     userModel.findByCrediential(body.email, body.password).then((user) => {
         res.send(user);
     }).catch((err) => {
-        res.status(400).send(err);
+        res.status(400).send({
+            "Response": err
+        });
     });
 }
 

@@ -2,8 +2,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { DemoMaterialModule } from "../material.module";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { LoginFormComponent } from "./login-form/login-form.component";
 import { routing } from "./login.routing";
+
+import { LoginFormComponent } from "./login-form/login-form.component";
 import { RegistrationComponent } from "./registration/registration.component";
 import { LoginModuleService } from "./login-module.service";
 
@@ -11,11 +12,9 @@ import { LoginModuleService } from "./login-module.service";
     imports: [
         DemoMaterialModule,
         CommonModule, FormsModule, ReactiveFormsModule,
-        routing
+        routing, 
     ],
-    declarations: [
-        LoginFormComponent, RegistrationComponent
-    ],
+    declarations: [LoginFormComponent, RegistrationComponent],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     providers: [LoginModuleService]
 })

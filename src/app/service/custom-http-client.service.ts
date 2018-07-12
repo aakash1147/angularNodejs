@@ -12,7 +12,6 @@ export class HttpClient implements OnInit {
     }
 
     createAuthorizationHeader(headers: Headers) {
-          headers.append('Content-Type', 'multipart/form-data');
           headers.append('Content-Type', 'application/json');
           headers.delete('Content-Type');
           headers.append('Accept', 'application/json');

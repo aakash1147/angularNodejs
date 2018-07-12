@@ -20,7 +20,6 @@ import { HttpClient } from './service/custom-http-client.service';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent
@@ -39,7 +38,7 @@ import { HttpClient } from './service/custom-http-client.service';
   exports: [
     DemoMaterialModule
   ],
-  providers: [projectApi, LoginService,HttpClient],
+  providers: [projectApi, HttpClient, LoginService],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })
