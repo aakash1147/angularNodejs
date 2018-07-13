@@ -13,9 +13,10 @@ export class HttpClient implements OnInit {
 
     createAuthorizationHeader(headers: Headers) {
           headers.append('Content-Type', 'application/json');
-          headers.delete('Content-Type');
-          headers.append('Accept', 'application/json');
-          headers.append('Authorization', 'Token ' + this.authToken);
+          headers.append('Access-Control-Allow-Origin', '*');
+          // headers.delete('Content-Type');
+          // headers.append('Accept', 'application/json');
+          // headers.append('Authorization', 'Token ' + this.authToken);
     }
         
         

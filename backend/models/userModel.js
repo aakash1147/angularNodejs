@@ -38,7 +38,13 @@ UserSchema.methods.toJSON = function () {
     // for returning limited date to the API
     var user = this;
     var userObject = user.toObject();
-   return _.pick(userObject, ['_id', 'email']);
+    //return _.pick(userObject, ['_id', 'email', 'tokens[0].token']);
+       
+   return {
+       '_id':userObject._id,
+       'email': userObject.email,
+       'token': userObject.tokens[0].token
+   }
 };
   
 UserSchema.methods.generateAuthToken = function () {
@@ -84,7 +90,7 @@ UserSchema.statics.findByCrediential = function (email, password) {
     var user = this;
     return user.findOne({email}).then((user) => {
         if(!user) {
-            return Promise.reject();
+            return Promise.reject({'Response': 'User with this email Not Found'});
         }
         return new Promise((resolve, reject) => {
             // to compare the user given password & the enycripted password present in the datebase
@@ -92,7 +98,7 @@ UserSchema.statics.findByCrediential = function (email, password) {
                 if(res) {
                     resolve(user);
                 } else {
-                    reject();
+                    reject({'Response': "Incorrect password"});
                 }
             })
         })
