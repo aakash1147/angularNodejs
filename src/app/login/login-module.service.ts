@@ -15,16 +15,23 @@ export class LoginModuleService {
     loginUser(data) {
         this.LoginService.LoginFormService(data).subscribe(
             data => {
-                console.log(data);
+                return data;
             },
             error => {
-                console.log(error);
+                return error;
             }
         );
     }
 
     createUser(data) {
-        
+        this.LoginService.RegistrationFormService(data).subscribe(
+            data => {
+                return data;
+            },
+            error => {
+                return error;
+            }
+        );
     }
 
 

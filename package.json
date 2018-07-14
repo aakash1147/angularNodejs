@@ -35,9 +35,11 @@
     "mongodb": "^2.2.5",
     "mongoose": "^5.2.1",
     "ngx-cookie": "^3.0.1",
+    "nodemailer": "^4.6.7",
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.2.1",
     "sass": "^1.9.0",
+    "sendmail": "^1.4.1",
     "validator": "^5.6.0",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.26"

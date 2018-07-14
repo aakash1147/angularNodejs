@@ -5,8 +5,20 @@ const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 
+const sendmail = require('sendmail')();
 
 var UserSchema = mongoose.Schema({
+    firstname: {
+        type: String,
+        required: [true, "First Name is requires"]
+    },
+    lastname: {
+        type: String,
+        required: [true, "Last Name is requires"]
+    },
+    phoneno: {
+        type: Number
+    },
     email: {
         type: String,
         required: [true, "Email Id is required"],
@@ -19,7 +31,7 @@ var UserSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, "Password is required"],
+        // required: [true, "Password is required"],
     },
     tokens: [{
         access: {
@@ -42,6 +54,8 @@ UserSchema.methods.toJSON = function () {
        
    return {
        '_id':userObject._id,
+       'firstname': userObject.firstname,
+       'lastname': userObject.lastname,
        'email': userObject.email,
        'token': userObject.tokens[0].token
    }
@@ -58,15 +72,29 @@ UserSchema.methods.generateAuthToken = function () {
     });
 };
 
-UserSchema.methods.removeToken = function (token) {
+UserSchema.methods.sendVerificationMail = function() {
     var user = this;
-  
+    console.log(user);
+    var mailString = "http://localhost:4200/verificationmail/?" + user.tokens[0].token;
+    sendmail({
+        from: 'aakash1147@gmail.com',
+        to: user.email,
+        subject: 'Verification Mail',
+        text: mailString,
+      }, function(err, reply) {
+        // console.log(err && err.stack);
+        // console.dir(reply);
+    });
+};
+
+UserSchema.statics.removeToken = function (token) {
+    var user = this;  
     return user.update({
       $pull: {
         tokens: {token}
       }
     });
-  };
+};
   
 UserSchema.statics.findByToken = function(token) {
     // to find the user with token
@@ -76,7 +104,7 @@ UserSchema.statics.findByToken = function(token) {
     try {
       decoded = jwt.verify(token, 'akash1147');
     } catch (e) {
-      return Promise.reject();
+      return Promise.reject({'Respose': "Unable to find user"});
     }
     return User.findOne({
         '_id': decoded._id,

@@ -5,6 +5,6 @@ import { Injectable } from "@angular/core";
 export class projectApi {
     public baseUrl = "http://localhost:5000/";
 
-    login= this.baseUrl + "login";
-    
+    login = this.baseUrl + "login";
+    createUser = this.baseUrl + "create/user";
 }

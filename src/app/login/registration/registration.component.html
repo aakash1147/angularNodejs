@@ -11,23 +11,25 @@
                 <div class="row">
                     <div class="col-6">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="First Name" >
+                            <input matInput name="firstname" [(ngModel)]="userCreate.firstname" placeholder="First Name" >
                         </mat-form-field>
                     </div>
                     <div class="col-6">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Last Name" >
+                            <input matInput name="lastname" [(ngModel)]="userCreate.lastname" placeholder="Last Name" >
                         </mat-form-field>
                     </div>
                 </div>  
                 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="EmailId" >
+                    <input matInput name="email" [(ngModel)]="userCreate.email" placeholder="EmailId" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput name="phoneno" [(ngModel)]="userCreate.phoneno" placeholder="Phone No" >
                 </mat-form-field>
                 
-                
                 <p class="text-right" routerLink="/login">Already Have a Account ?</p>            
-                <button type="submit" class="mb-4 mt-2 col-12 simply-button-background-color-warn" mat-raised-button>Register</button>
+                <button type="submit" (click)="method_for_create_user()" class="mb-4 mt-2 col-12 simply-button-background-color-warn" mat-raised-button>Register</button>
             </form>
         </div>
     </mat-card>

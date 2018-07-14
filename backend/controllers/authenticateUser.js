@@ -16,10 +16,8 @@ var authentication = function (req, res, next) {
             next();
         }).catch((err) => {
             res.status(401).send();
-        })
-    
-    }
-    
+        })    
+    }    
 }
 
 module.exports = {

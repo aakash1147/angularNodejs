@@ -15,4 +15,7 @@ export class LoginService {
         return this.http.post(this.projectApi.login, dto_data).map(res => res.json());
     }  
 
+    RegistrationFormService(dto_data) {
+        return this.http.post(this.projectApi.createUser, dto_data).map(res => res.json());
+    }
 }
