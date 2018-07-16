@@ -1,7 +1,8 @@
 const _ = require('lodash');
 
-
 var userModel = require('../models/userModel');
+var sendVerificationMail = require('./mail');
+
 
 var createUser = function(req, res) {
     var body = _.pick(req.body, ['email', 'firstname', 'lastname', 'phoneno']);
@@ -11,7 +12,7 @@ var createUser = function(req, res) {
     user.save().then((user) => {
       return user.generateAuthToken();
     }).then((token) => {
-        user.sendVerificationMail();
+        sendVerificationMail.varificationMail(user);
         return token;
     }).then((token)=> {
         res.header('x-auth', token).send(user);

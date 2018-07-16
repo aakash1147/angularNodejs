@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 
-const sendmail = require('sendmail')();
 
 var UserSchema = mongoose.Schema({
     firstname: {
@@ -72,20 +71,6 @@ UserSchema.methods.generateAuthToken = function () {
     });
 };
 
-UserSchema.methods.sendVerificationMail = function() {
-    var user = this;
-    console.log(user);
-    var mailString = "http://localhost:4200/verificationmail/?" + user.tokens[0].token;
-    sendmail({
-        from: 'aakash1147@gmail.com',
-        to: user.email,
-        subject: 'Verification Mail',
-        text: mailString,
-      }, function(err, reply) {
-        // console.log(err && err.stack);
-        // console.dir(reply);
-    });
-};
 
 UserSchema.statics.removeToken = function (token) {
     var user = this;  

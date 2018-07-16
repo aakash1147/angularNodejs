@@ -7,6 +7,8 @@ import { routing } from "./login.routing";
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { RegistrationComponent } from "./registration/registration.component";
 import { LoginModuleService } from "./login-module.service";
+import { UserVerifivationComponent } from "./user-verifivation/user-verifivation.component";
+
 
 @NgModule({
     imports: [
@@ -14,7 +16,9 @@ import { LoginModuleService } from "./login-module.service";
         CommonModule, FormsModule, ReactiveFormsModule,
         routing, 
     ],
-    declarations: [LoginFormComponent, RegistrationComponent],
+    declarations: [LoginFormComponent, RegistrationComponent,
+        UserVerifivationComponent
+    ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     providers: [LoginModuleService]
 })
