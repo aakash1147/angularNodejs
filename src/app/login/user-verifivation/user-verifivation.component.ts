@@ -12,5 +12,6 @@ export class UserVerifivationComponent {
 
     constructor(private route: ActivatedRoute) {
         this.userToken = this.route.snapshot.params['usertoken'];
+        console.log(this.userToken);
     }
 }
