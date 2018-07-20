@@ -23,9 +23,6 @@ var createUser = function(req, res) {
 
 
 
-
-
-
 module.exports = {
     createUser
 }

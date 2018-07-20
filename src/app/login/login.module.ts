@@ -8,6 +8,7 @@ import { LoginFormComponent } from "./login-form/login-form.component";
 import { RegistrationComponent } from "./registration/registration.component";
 import { LoginModuleService } from "./login-module.service";
 import { UserVerifivationComponent } from "./user-verifivation/user-verifivation.component";
+import { LoginComponent } from "./login.component";
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { UserVerifivationComponent } from "./user-verifivation/user-verifivation
         CommonModule, FormsModule, ReactiveFormsModule,
         routing, 
     ],
-    declarations: [LoginFormComponent, RegistrationComponent,
+    declarations: [LoginComponent, LoginFormComponent, RegistrationComponent,
         UserVerifivationComponent
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

@@ -34,5 +34,16 @@ export class LoginModuleService {
         );
     }
 
+    retrive_data_user_varification_token(data) {
+        this.LoginService.varification_Form_Service_On_token_base(data).subscribe(
+            data => {
+                return data;
+            }, 
+            error => {
+                return error;
+            }
+        )
+    }
+
 
 }

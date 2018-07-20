@@ -56,7 +56,7 @@ UserSchema.methods.toJSON = function () {
        'firstname': userObject.firstname,
        'lastname': userObject.lastname,
        'email': userObject.email,
-       'token': userObject.tokens[0].token
+    //    'token': userObject.tokens[0].token
    }
 };
   
