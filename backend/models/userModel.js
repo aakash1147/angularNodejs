@@ -5,15 +5,14 @@ const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 
-
 var UserSchema = mongoose.Schema({
     firstname: {
         type: String,
-        required: [true, "First Name is requires"]
+        required: [true, "First Name is required"]
     },
     lastname: {
         type: String,
-        required: [true, "Last Name is requires"]
+        required: [true, "Last Name is required"]
     },
     phoneno: {
         type: Number
@@ -25,7 +24,7 @@ var UserSchema = mongoose.Schema({
         unique: true,
         validate: {
             validator: validator.isEmail,
-            message: `{value} is not a valid email`,
+            message: `Please Enter a Valid Email`,
         }
     },
     password: {
@@ -50,7 +49,7 @@ UserSchema.methods.toJSON = function () {
     var user = this;
     var userObject = user.toObject();
     //return _.pick(userObject, ['_id', 'email', 'tokens[0].token']);
-       
+
    return {
        '_id':userObject._id,
        'firstname': userObject.firstname,
@@ -59,11 +58,13 @@ UserSchema.methods.toJSON = function () {
     //    'token': userObject.tokens[0].token
    }
 };
-  
+
+
+
 UserSchema.methods.generateAuthToken = function () {
     // for generating auth token
     var user = this;
-    var access = 'auth';    
+    var access = 'auth';
     var token = jwt.sign({_id: user._id.toHexString(), access}, 'akash1147').toString();
     user.tokens.push({access, token});
     return user.save().then(() => {
@@ -73,14 +74,14 @@ UserSchema.methods.generateAuthToken = function () {
 
 
 UserSchema.statics.removeToken = function (token) {
-    var user = this;  
+    var user = this;
     return user.update({
       $pull: {
         tokens: {token}
       }
     });
 };
-  
+
 UserSchema.statics.findByToken = function(token) {
     // to find the user with token
     var user = this;
@@ -134,8 +135,7 @@ UserSchema.pre('save', function(next) {
 });
 
 
-
-
 var UserModel = mongoose.model('user', UserSchema);
+
 
 module.exports = UserModel;

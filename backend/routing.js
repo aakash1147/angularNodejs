@@ -4,7 +4,7 @@ var UserAuthentication = require('./controllers/authenticateUser');
 
 var userApi = require('./controllers/userApi');
 var loginApi = require('./controllers/loginApi');
-var mailApi = require('./controllers/mail');
+var mailApi = require('./controllers/varificationmail');
 
 module.exports = function(app) {
     app.use(BodyParser.json());
