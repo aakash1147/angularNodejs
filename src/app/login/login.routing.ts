@@ -7,11 +7,13 @@ import { LoginComponent } from './login.component';
 
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },
-    { path: 'login-form', component: LoginFormComponent },
-    { path: 'registration', component: RegistrationComponent },
-    { path: 'userverifivation/:usertoken', component: UserVerifivationComponent }
+    // { path: '', redirectTo: 'login', pathMatch: 'full' },
+    // { path: 'login', component: LoginComponent },
+    { path: '', redirectTo: 'login-form', pathMatch: 'full' },
+    { path: 'login', redirectTo: 'login-form', pathMatch: 'full' },
+    { path: 'login-form', loadChildren: '../login/login-form/login-form.module#LoginFormModule' },
+    { path: 'registration', loadChildren: '../login/registration/registration.module#RegistrationFormModule' },
+    // { path: 'userverifivation/:usertoken', component: UserVerifivationComponent }
 ];
 
 

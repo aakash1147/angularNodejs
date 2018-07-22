@@ -25,11 +25,10 @@ import { HttpClient } from './service/custom-http-client.service';
     AppComponent
   ],
   imports: [
-    BrowserModule,HttpModule,
-    DemoMaterialModule, 
+    BrowserModule, HttpModule,
+    DemoMaterialModule,
     BrowserAnimationsModule,
     FormsModule, ReactiveFormsModule,
-    
     HttpClientModule,
     routing,
     CookieModule.forRoot(),

@@ -5,19 +5,16 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { routing } from "./login.routing";
 
 import { LoginFormComponent } from "./login-form/login-form.component";
-import { RegistrationComponent } from "./registration/registration.component";
 import { LoginModuleService } from "./login-module.service";
 import { UserVerifivationComponent } from "./user-verifivation/user-verifivation.component";
-import { LoginComponent } from "./login.component";
-
 
 @NgModule({
     imports: [
         DemoMaterialModule,
         CommonModule, FormsModule, ReactiveFormsModule,
-        routing, 
+        routing,
     ],
-    declarations: [LoginComponent, LoginFormComponent, RegistrationComponent,
+    declarations: [
         UserVerifivationComponent
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
