@@ -4,20 +4,17 @@ var authentication = function (req, res, next) {
     var token = req.header('x-auth');
 
     console.log(req.originalUrl);
-    var url = req.originalUrl;
-    if(url == '/create/user' || '/login') {
+
+    userModel.findByToken(token).then((user)=> {
+        if(!user) return Promise.reject({"Response": "Invalid token"});
+        req.user = user;
+        req.token = token;
         next();
-    }else {
-        userModel.findByToken(token).then((user)=> {
-            if(!user) return Promise.reject();
-            console.log(user);
-            req.user = user;
-            req.token = token;
-            next();
-        }).catch((err) => {
-            res.status(401).send();
-        })    
-    }    
+    }).catch((err) => {
+        res.status(401).send({
+          "Response": "You are un autherized",
+        });
+    })
 }
 
 module.exports = {

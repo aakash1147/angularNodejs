@@ -85,14 +85,14 @@ UserSchema.statics.removeToken = function (token) {
 UserSchema.statics.findByToken = function(token) {
     // to find the user with token
     var user = this;
-    // console.log(user);
+    //console.log(user);
     var decoded;
     try {
       decoded = jwt.verify(token, 'akash1147');
     } catch (e) {
       return Promise.reject({'Respose': "Unable to find user"});
     }
-    return User.findOne({
+    return user.findOne({
         '_id': decoded._id,
         'tokens.token': token,
         'tokens.access': 'auth'
