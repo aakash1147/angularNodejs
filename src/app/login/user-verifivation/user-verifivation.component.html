@@ -2,21 +2,21 @@
 
 
 
-<div class="">                                                                                                                                                                                                                                                                                                                                                                                                                           
+<div class="">
     <mat-card class="simply-login-card card">
         <div class="card-header simply-background-color-warn">
             <h4 class="text-center">Email Varification</h4>
         </div>
-    
+
         <div class="container mt-3">
             <form>
                 <mat-form-field class="simply-input-width-full">
-                    <input matInput placeholder="Enter your EmailId" name="emailid"   class="formControl"  id="email" disabled />
+                    <input matInput placeholder="Enter your EmailId" name="emailid"  class="formControl"  id="email" disabled />
                     <mat-error>
                         Please enter a valid email address
                     </mat-error>
                 </mat-form-field>
-    
+
                 <mat-form-field class="matInput" class="simply-input-width-full">
                     <input matInput placeholder="Enter your password" name="password"  class="formControl"   [type]="hide ? 'text' : 'password'">
                     <mat-icon matSuffix style="cursor: pointer;" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -24,20 +24,20 @@
                         Password have 6 digit & atlest One number
                     </mat-error>
                 </mat-form-field>
-    
+
                 <div class="row">
                     <div class="col-7">
                         <span routerLink="/registration">SignUp</span>
                     </div>
                     <div class="col-5">
-                        <span>Forgot Password?</span> 
+                        <span>Forgot Password?</span>
                     </div>
                 </div>
-    
+
                 <button type="button" (click)="method_for_login()" class="mb-4 mt-2 col-12 simply-button-background-color-warn" mat-raised-button>Login</button>
             </form>
         </div>
     </mat-card>
-    
-    
+
+
     </div>

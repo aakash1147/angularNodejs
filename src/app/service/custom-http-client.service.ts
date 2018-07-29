@@ -6,7 +6,7 @@ import { CookieService } from 'ngx-cookie';
 
 export class HttpClient implements OnInit {
     private authToken;
-    
+
     constructor(private http: Http, private cookiesService: CookieService) {
         this.authToken = this.cookiesService.get('Token');
     }
@@ -15,26 +15,26 @@ export class HttpClient implements OnInit {
           headers.append('Content-Type', 'application/json');
           headers.append('Access-Control-Allow-Origin', '*');
           // headers.delete('Content-Type');
-          // headers.append('Accept', 'application/json');
+          headers.append('Accept', 'application/json');
           // headers.append('Authorization', 'Token ' + this.authToken);
     }
-        
-        
-    ngOnInit() {      
+
+
+    ngOnInit() {
     }
-        
+
     get(url) {
-      this.authToken =  this.cookiesService.get('Token');   
-      const headers = new Headers();   
-      this.createAuthorizationHeader(headers);   
+      this.authToken =  this.cookiesService.get('Token');
+      const headers = new Headers();
+      this.createAuthorizationHeader(headers);
       return this.http.get(url, {
         headers: headers,
       });
     }
-    
+
     post(url, data) {
       this.authToken =  this.cookiesService.get('Token');
-      const headers = new Headers();  
+      const headers = new Headers();
       this.createAuthorizationHeader(headers);
       return this.http.post(url, data, {
         headers: headers,
@@ -48,7 +48,7 @@ export class HttpClient implements OnInit {
         headers: headers,
       });
     }
-    
+
     delete(url) {
       this.authToken =  this.cookiesService.get('Token');
       const headers = new Headers();
@@ -57,7 +57,7 @@ export class HttpClient implements OnInit {
         headers: headers,
       });
     }
-    
-    
+
+
 
 }

@@ -6,7 +6,7 @@ import { LoginService } from "../service/login-service";
 
 export class LoginModuleService {
 
-    
+
 
     constructor (private LoginService: LoginService) {
 
@@ -37,8 +37,9 @@ export class LoginModuleService {
     retrive_data_user_varification_token(data) {
         this.LoginService.varification_Form_Service_On_token_base(data).subscribe(
             data => {
-                return data;
-            }, 
+              console.log(data);
+
+            },
             error => {
                 return error;
             }

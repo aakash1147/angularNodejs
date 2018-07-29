@@ -4,7 +4,6 @@ import { ModuleWithProviders } from '@angular/core';
 
 
 export const routes: Routes = [
-  //{ path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '', loadChildren: '../app/login/login.module#LoginModule' }
 ];
 

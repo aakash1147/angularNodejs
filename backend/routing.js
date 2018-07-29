@@ -13,4 +13,5 @@ module.exports = function(app) {
     app.post('/login', loginApi.login);
     app.post('/user/create', userApi.createUser);
     app.post('/user/varification', mailApi.userverifivationToken);
+    app.post('/user/verifyuser', userApi.verifyUser);
 }
