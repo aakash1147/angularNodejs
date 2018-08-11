@@ -15,6 +15,7 @@ export class LoginModuleService {
     loginUser(data) {
         this.LoginService.LoginFormService(data).subscribe(
             data => {
+              console.log(data);
                 return data;
             },
             error => {
@@ -26,6 +27,7 @@ export class LoginModuleService {
     createUser(data) {
         this.LoginService.RegistrationFormService(data).subscribe(
             data => {
+              console.log(data);
                 return data;
             },
             error => {

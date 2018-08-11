@@ -12,12 +12,9 @@ var validateError = function(error) {
           finalError = finalError + getError[k].message + ',' + ' ';
         }
     }
-
     var custom_error = {
       Response: finalError,
     }
-
-    console.log(custom_error);
     return custom_error;
 }
 

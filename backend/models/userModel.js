@@ -29,7 +29,14 @@ var UserSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        // required: [true, "Password is required"],
+    },
+    is_active: {
+        type: Boolean,
+        default: false,
+    },
+    is_deleted: {
+      type: Boolean,
+      default: false,
     },
     tokens: [{
         access: {

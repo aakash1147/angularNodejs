@@ -26,21 +26,17 @@ var verifyUser = function(req, res) {
     email = req.body.email;
     password = req.body.password;
 
-    varificationMailModel.findOne({ _id: varificationtoken, is_consumed: false }, function(err, varificationData){
-        if(err) return res.status(400).send({"Response": "Invalid Token"});
-        if(!err) {
-          console.log(varificationData);
-
+    varificationMailModel.findOne({ _id: varificationtoken, is_consumed: false }, function(err, varificationData) {
+        if(!varificationData) return res.status(400).send({"Response": "Invalid Token"});
+        if(varificationData) {
           userModel.findOne({ _id: varificationData.userid }, function(err, userData){
             if(err) return res.status(400).send({ "Response": "Unable to find User" });
             if(!err) {
-
               userData.password = password;
-
-              varificationData.is_consumed = true;
-              varificationData.save();
-
+              userData.is_active = true;
               userData.save().then((user) => {
+                varificationData.is_consumed = true;
+                varificationData.save();
                 res.status(200).send(user);
               }).catch((err) => {
                   asd = validateError.validateError(err);
