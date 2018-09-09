@@ -25,6 +25,20 @@ module.exports = function(app) {
       }
       next();
     });
+    app.use((req, res, next) => {
+      const error = new Error("Not found");
+      error.status = 404;
+      next(error);
+    });
+
+    app.use((error, req, res, next) => {
+      res.status(error.status || 500);
+      res.json({
+        error: {
+          message: error.message
+        }
+      });
+    });
 
     app.post('/login', loginApi.login); // for getting token of user
     app.get('/me', UserAuthentication.authentication, loginApi.me); // hit with user token to get user data
