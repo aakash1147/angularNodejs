@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { projectApi } from "../service/project-api.service";
-import { LoginService } from "../service/login-service";
+import { Injectable } from '@angular/core';
+import { projectApi } from '../service/project-api.service';
+import { LoginService } from '../service/login-service';
 
 @Injectable ()
 
@@ -8,12 +8,12 @@ export class LoginModuleService {
 
 
 
-    constructor (private LoginService: LoginService) {
+    constructor (private loginService: LoginService) {
 
     }
 
-    loginUser(data) {
-        this.LoginService.LoginFormService(data).subscribe(
+    loginUser(data_dto) {
+        this.loginService.LoginFormService(data_dto).subscribe(
             data => {
               console.log(data);
                 return data;
@@ -24,8 +24,8 @@ export class LoginModuleService {
         );
     }
 
-    createUser(data) {
-        this.LoginService.RegistrationFormService(data).subscribe(
+    createUser(data_dto) {
+        this.loginService.RegistrationFormService(data_dto).subscribe(
             data => {
               console.log(data);
                 return data;
@@ -36,11 +36,10 @@ export class LoginModuleService {
         );
     }
 
-    retrive_data_user_varification_token(data) {
-        this.LoginService.varification_Form_Service_On_token_base(data).subscribe(
+    retrive_data_user_varification_token(data_dto) {
+        this.loginService.varification_Form_Service_On_token_base(data_dto).subscribe(
             data => {
               console.log(data);
-
             },
             error => {
                 return error;
